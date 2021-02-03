@@ -73,11 +73,19 @@ Write-Host "Downloading the VirtIO ISO from $virtIOISOLink..."
 
 # QEMU Guest Agent https://wiki.libvirt.org/page/Qemu_guest_agent
 $qemuGaMsiPath = Join-Path -Path $customResourcesPath -ChildPath "qemu-ga-x64.msi"
-$qemuGaMsiLink = "https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-qemu-ga/qemu-ga-win-100.0.0.0-3.el7ev/qemu-ga-x64.msi"
+$qemuGaMsiLink = "https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-qemu-ga/qemu-ga-win-101.2.0-1.el7ev/qemu-ga-x86_64.msi"
 
 # Download the QEMU Guest Agent
 Write-Host "Downloading the QEMU Guest Agent from $qemuGaMsiLink..."
 (New-Object System.Net.WebClient).DownloadFile($qemuGaMsiLink, $qemuGaMsiPath)
+
+# SPICE agent https://www.spice-space.org/index.html
+$spiceGaMsiPath = Join-Path -Path $customResourcesPath -ChildPath "spice-guest-tools-latest.exe"
+$spiceGaMsiLink = "https://www.spice-space.org/download/windows/spice-guest-tools/spice-guest-tools-latest.exe"
+
+# Download the SPICE Agent
+Write-Host "Downloading the SPICE Agent from $spiceGaMsiLink..."
+(New-Object System.Net.WebClient).DownloadFile($spiceGaMsiLink, $spiceGaMsiPath)
 
 # Make sure the switch exists and allows Internet access for updates to be installed
 $switchName = "Default Switch"

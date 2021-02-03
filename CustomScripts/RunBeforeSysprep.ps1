@@ -34,6 +34,7 @@ function Is-WindowsClient {
 }
 
 Install-Msi -description "QEMU Guest Agent" -file "$customResourcesPath\qemu-ga-x64.msi"
+Install-Msi -description "SPICE Agent" -file "$customResourcesPath\spice-guest-tools-latest.exe"
 
 if (Is-WindowsClient) {
     Enable-AdministratorAccount
